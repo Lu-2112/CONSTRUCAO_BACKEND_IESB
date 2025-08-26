@@ -1,3 +1,5 @@
+const PromptSync = require("prompt-sync")
+
 console.log("#####Projeto 02 - Calculadora de Nota#####")
 
 // importo e executo o prompt-sync
@@ -11,14 +13,14 @@ let nome = prompt("Qual é o seu nome ?")
 console.log("Olá " + nome)
 
 //Calculo da nota do iesb baseado no peso 
-let {calculadorNotaA1, calcularNotaA2, calcularNotaFinal} = require('./CalculadoraNota')
+let {calcularNotaA1, calcularNotaA2, calcularNotaFinal} = require('./CalculadoraNota')
 
 console.log("### Calculando Nota A1 ###")
 let exercicioA1 = parseFloat(prompt("Qual a sua nota de exercicio? "))
 let trabalhoA1 = parseFloat(prompt("Qual a sua nota de trabalho? "))
 let provaA1 =  parseFloat(prompt("Qual a sua nota de prova? "))
 
-let notaA1 = calculadorNotaA1(exercicioA1, trabalhoA1, provaA1)
+let notaA1 = calcularNotaA1(exercicioA1, trabalhoA1, provaA1)
 
 console.log("Nota A1 calculada: " + notaA1)
 console.log("### Finalizado calculo Nota A1")
