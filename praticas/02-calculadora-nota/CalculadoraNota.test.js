@@ -2,7 +2,7 @@
 let {calcularNotaA1} = require('./CalculadoraNota')
 
 // importo as funcionalidade do JEST
-let{describe, expect, test} = require('@jest/globals')
+let{describe, expect, test} = require('@jestGlobals')
 
 // describe para fazer o agrupamento dos testes 
 describe('Testando Modulo CalculadoraNota', () => {
