@@ -34,7 +34,7 @@ mongoose.connect(url)
  ))
 
  // CRUD
- //CREATE
+ //CREATE - criação
  app.post('/pessoas', async (req, res, next) => {
     const pessoa = req.body
     if(!pessoa.nome || !pessoa.idade){
@@ -50,6 +50,33 @@ mongoose.connect(url)
     res.json(pessoas)
  })
 
+ //Leitura 
+ app.get('/pessoas', async (req, res, next) => {
+   const pessoas = await PessoaModel.find()
+   res.json(pessoas)
+})
+
+//atualização
+app.put('/pessoas/:id', async (req, res, next)=> {
+   const id = req.params.id
+   const pessoa = req.body
+
+   if(!pessoa.nome || !pessoa.idade){
+      return res.status(400).json({ erro: " Campos nome e idade são obrigatórios!"})
+   }
+   const pessoaAtualizada = await PessoaModel.findByIdAndUpdate(id, pessoa, { new: true})
+   if(!pessoaAtualizada ){
+      return res.status(404).json({ erro: "Pessoa não encontrada!"})
+   }
+   res.json(pessoaAtualizada)
+})
+
+//exclusão
+app.delete('/pessoas/:id', async (req, res, next)=> {
+   const id = req.params.id
+   await PessoaModel.findByIdAndDelete(id)
+   res.status(204).send()
+})
 
 
 app.listen(3000, () => {
