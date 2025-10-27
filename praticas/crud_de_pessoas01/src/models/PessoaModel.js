@@ -15,8 +15,8 @@ const schema = new mongoose.Schema(
         complemento: String, 
         bairro: String, 
         numero: String, 
-        uf: String,  
-       },
+        uf: String
+       }
     },
     // parametros
     {
