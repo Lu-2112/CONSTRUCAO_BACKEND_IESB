@@ -15,7 +15,7 @@ async function validarCargo(req, res, next){
         await schema.validate(req.body, { abortEarly: false})
         next()
     } catch (erro) {
-      return res.status(400).json({ erros: error.error})
+      return res.status(400).json({ erros: error.errors})
     }
 }
 
